@@ -1,0 +1,41 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int numCourses;
+    cout << "Enter the number of courses: ";
+    cin >> numCourses;
+
+    double totalCredits = 0, totalGradePoints = 0;
+
+    for (int i = 1; i <= numCourses; i++) {
+        double grade;
+        int creditHours;
+
+        cout << "\nCourse " << i << ":\n";
+        cout << "Enter grade (on 4.0 scale): ";
+        cin >> grade;
+        cout << "Enter credit hours: ";
+        cin >> creditHours;
+
+        double gradePoints = grade * creditHours;
+
+        totalCredits += creditHours;
+        totalGradePoints += gradePoints;
+
+        cout << "Grade: " << grade 
+             << ", Credit Hours: " << creditHours 
+             << ", Grade Points: " << gradePoints << endl;
+    }
+
+    double cgpa = totalGradePoints / totalCredits;
+
+    cout << "\n--- Final Result ---\n";
+    cout << "Total Credits: " << totalCredits << endl;
+    cout << "Total Grade Points: " << totalGradePoints << endl;
+    cout << fixed << setprecision(2);
+    cout << "Final CGPA: " << cgpa << endl;
+
+    return 0;
+}
